@@ -5,7 +5,7 @@ from DHT11 import dht11
 import datetime
 import json
 
-url = "127.0.0.1:5000/post"
+url = "http://192.168.1.200:5000/post"
 now = datetime.datetime.now()
 
 # initialize GPIO
@@ -18,14 +18,14 @@ instance = dht11.DHT11(pin=14)
 try:
 	result = instance.read()
 	if result.is_valid():#DHT11から正しくデータを取得できたら
-        date = now.strftime("%H:%M")
-        temperature = result.temperature
-        humidity = result.humidity
-        datas = {   "date" : date,
-                    "temperature" : temperature,
-                    "humidity" : humidity
-                }
-        response = requests.post(url, json = json.dumps(datas))
+		date = now.strftime("%H:%M")
+		temperature = result.temperature
+		humidity = result.humidity
+		datas = {   "date" : date,
+			"temperature" : temperature,
+			"humidity" : humidity
+		}
+	response = requests.post(url, json = json.dumps(datas))
 
 except KeyboardInterrupt:
 	print("Cleanup")
