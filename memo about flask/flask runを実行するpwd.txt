@@ -1,0 +1,3 @@
+flask run を実行する前に設定する環境変数FLASK_APPはflaskのファイルがあるディレクトリ（pwd）で行う
+
+htmlファイルを入れるtemplatesはflaskのファイルがあるディレクトリに入れておく
