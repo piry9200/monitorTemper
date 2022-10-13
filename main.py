@@ -12,7 +12,8 @@ def hello():
 @app.route("/post", methods=["POST"])
 def sendDataToDB():
     param = json.loads(request.json)
-    date = param[date]
-    temperature = param[temperature]
-    humidity = param[humidity]
-    return print(date, temperature, humidity)
+    print(param)
+    dates = param["date"]
+    temperature = param["temperature"]
+    humidity = param["humidity"]
+    return ('200')
