@@ -18,7 +18,7 @@ instance = dht11.DHT11(pin=14)
 try:
 	result = instance.read()
 	if result.is_valid():#DHT11から正しくデータを取得できたら
-		date = now.strftime("%H:%M")
+		date = now.strftime("%Y/%m/%d/%H:%M")
 		temperature = result.temperature
 		humidity = result.humidity
 		datas = {   "date" : date,
