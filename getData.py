@@ -5,7 +5,7 @@ from DHT11 import dht11
 import datetime
 import json
 
-url = "http://192.168.1.200:5000/post"
+url = "http://127.0.0.1:5000/post"
 now = datetime.datetime.now()
 
 # initialize GPIO
@@ -18,7 +18,7 @@ instance = dht11.DHT11(pin=14)
 try:
 	result = instance.read()
 	if result.is_valid():#DHT11から正しくデータを取得できたら
-		date = now.strftime("%Y/%m/%d/%H:%M")
+		date = now.strftime("%Y.%m.%d.%H:%M")
 		temperature = result.temperature
 		humidity = result.humidity
 		datas = {   "date" : date,
